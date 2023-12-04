@@ -29,16 +29,6 @@ def color_standardization(image, reference_image):
 
     return standardized_image
 
-# Function to extract color features from an image
-def extract_color_features(image_path):
-    image = cv2.imread(image_path)
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Convert to RGB
-
-    # Extract color features (e.g., mean values of each channel)
-    mean_color = np.mean(image, axis=(0, 1))
-
-    return mean_color
-
 ###############################################################################################################
 
 # Path to image directories
@@ -51,7 +41,7 @@ image_directory = '/Users/christinasze/Desktop/CS279/project/CS279Project/cell_i
 reference_image_path = '/Users/christinasze/Desktop/CS279/project/CS279Project/cell_images/images/Parasitized/p0.png'
 reference_image = cv2.imread(reference_image_path)
 
-# Initialize list to store standardized images
+# Initialize lists to store standardized images and filenames
 standardized_images = []
 filenames = []
 
