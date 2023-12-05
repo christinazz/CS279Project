@@ -58,45 +58,95 @@ y_test = np.concatenate([np.ones(len(p_images_test)), np.zeros(len(u_images_test
 
 ###############################################################################################################
 
-# STRATEGY: MEAN COLOR VALUES
+# # STRATEGY: MEAN COLOR VALUES
 
-print(f'Classifiers based on mean color value features')
+# print(f'Classifiers based on mean color value features')
 
-# train/test feature sets for mean color
-X_train = [extract_color_features(img) for img in all_images_train]
-X_test = [extract_color_features(img) for img in all_images_test]
+# # train/test feature sets for mean color
+# X_train = [extract_color_features(img) for img in all_images_train]
+# X_test = [extract_color_features(img) for img in all_images_test]
 
-# Train SVM linear classifier
-linear_classifier = SVC(kernel='linear')
-linear_classifier.fit(X_train, y_train)
+# # Train SVM linear classifier
+# linear_classifier = SVC(kernel='linear')
+# linear_classifier.fit(X_train, y_train)
 
-# Make predictions on the test set
-y_pred = linear_classifier.predict(X_test)
+# # Make predictions on the test set
+# y_pred = linear_classifier.predict(X_test)
 
-# Evaluate the model
-linear_accuracy = accuracy_score(y_test, y_pred)
-print(f'SVM Linear Classifier Accuracy: {linear_accuracy * 100:.2f}%')
+# # Evaluate the model
+# linear_accuracy = accuracy_score(y_test, y_pred)
+# print(f'SVM Linear Classifier Accuracy: {linear_accuracy * 100:.2f}%')
 
-# Train SVM RBF classifier
-rbf_classifier = SVC(kernel='rbf')
-rbf_classifier.fit(X_train, y_train)
+# # Train SVM RBF classifier
+# rbf_classifier = SVC(kernel='rbf')
+# rbf_classifier.fit(X_train, y_train)
 
-# Make predictions on the test set
-y_pred = rbf_classifier.predict(X_test)
+# # Make predictions on the test set
+# y_pred = rbf_classifier.predict(X_test)
 
-# Evaluate the model
-rbf_accuracy = accuracy_score(y_test, y_pred)
-print(f'SVM RBF Classifier Accuracy: {rbf_accuracy * 100:.2f}%')
+# # Evaluate the model
+# rbf_accuracy = accuracy_score(y_test, y_pred)
+# print(f'SVM RBF Classifier Accuracy: {rbf_accuracy * 100:.2f}%')
+
+# ###############################################################################################################
+
+# # STRATEGY: COLOR HISTOGRAMS
+
+# print(f'Classifiers based on color histogram features')
+
+# # train/test feature sets for color histograms
+# X_train = [extract_color_histogram(img) for img in all_images_train]
+# X_test = [extract_color_histogram(img) for img in all_images_test]
+
+# # Train SVM linear classifier
+# linear_classifier = SVC(kernel='linear')
+# linear_classifier.fit(X_train, y_train)
+
+# # Make predictions on the test set
+# y_pred = linear_classifier.predict(X_test)
+
+# # Evaluate the model
+# linear_accuracy = accuracy_score(y_test, y_pred)
+# print(f'SVM Linear Classifier Accuracy: {linear_accuracy * 100:.2f}%')
+
+# # Train SVM RBF classifier
+# rbf_classifier = SVC(kernel='rbf')
+# rbf_classifier.fit(X_train, y_train)
+
+# # Make predictions on the test set
+# y_pred = rbf_classifier.predict(X_test)
+
+# # Evaluate the model
+# rbf_accuracy = accuracy_score(y_test, y_pred)
+# print(f'SVM RBF Classifier Accuracy: {rbf_accuracy * 100:.2f}%')
 
 ###############################################################################################################
 
-# STRATEGY: COLOR HISTOGRAMS
+# STRATEGY: INCLUDE BOTH MEAN COLOR AND COLOR HISTOGRAM FEATURES
 
-print(f'Classifiers based on color histogram features')
+print(f'Classifiers based on mean color value feature and color histogram feature')
 
-# train/test feature sets for color histograms
-X_train = [extract_color_histogram(img) for img in all_images_train]
-X_test = [extract_color_histogram(img) for img in all_images_test]
+# train/test feature sets for mean color and color histograms
+X_color_train = [extract_color_features(img) for img in all_images_train]
+# X_color_test = [extract_color_features(img) for img in all_images_test]
+
+print(np.shape(X_color_train))
+
+X_hist_train = [extract_color_histogram(img) for img in all_images_train]
+
+print(np.shape(X_hist_train))
+
+print("Done")
+
+X_hist_test = [extract_color_histogram(img) for img in all_images_test]
+
+X_train = np.hstack((X_color_train, X_hist_train))
+X_test = np.hstack((X_color_test, X_hist_test))
+
+print(np.shape(X_train))
+print(np.shape(X_test))
+print(np.shape(y_train))
+print(np.shape(y_test))
 
 # Train SVM linear classifier
 linear_classifier = SVC(kernel='linear')
