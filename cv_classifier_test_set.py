@@ -35,7 +35,8 @@ for filename in os.listdir(combined_dir):
 		gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 		# Apply threshold
-		threshold_value = 120
+		# threshold_value = 120
+		threshold_value = 128
 		ret, thresh = cv2.threshold(gray, threshold_value, 255, cv2.THRESH_BINARY_INV)
 
 		# Morphological operations
@@ -90,3 +91,67 @@ specificity = tn / (tn + fp) * 100
 print(f"Sensitivity: {sensitivity:.2f}%")
 print(f"Specificity: {specificity:.2f}%")
 
+
+## Threshold value: 120
+# Confusion Matrix:
+# [[2263  480]
+#  [  83 2668]]
+# Accuracy: 89.75%
+# Sensitivity: 82.50%
+# Specificity: 96.98%
+
+## Threshold value: 100
+# Confusion Matrix:
+# [[1579 1164]
+#  [   9 2742]]
+# Accuracy: 78.65%
+# Sensitivity: 57.56%
+# Specificity: 99.67%
+
+## Threshold value: 110
+# Confusion Matrix:
+# [[1988  755]
+#  [  33 2718]]
+# Accuracy: 85.66%
+# Sensitivity: 72.48%
+# Specificity: 98.80%
+
+## Threshold value: 140
+# Confusion Matrix:
+# [[2411  332]
+#  [ 362 2389]]
+# Accuracy: 87.37%
+# Sensitivity: 87.90%
+# Specificity: 86.84%
+
+## Threshold value: 130
+# Confusion Matrix:
+# [[2401  342]
+#  [ 198 2553]]
+# Accuracy: 90.17%
+# Sensitivity: 87.53%
+# Specificity: 92.80%
+
+## Threshold value: 135
+# Confusion Matrix:
+# [[2426  317]
+#  [ 276 2475]]
+# Accuracy: 89.21%
+# Sensitivity: 88.44%
+# Specificity: 89.97%
+
+## Threshold value: 133
+# Confusion Matrix:
+# [[2426  317]
+#  [ 250 2501]]
+# Accuracy: 89.68%
+# Sensitivity: 88.44%
+# Specificity: 90.91%
+
+## Threshold value: 128
+# Confusion Matrix:
+# [[2389  354]
+#  [ 178 2573]]
+# Accuracy: 90.32%
+# Sensitivity: 87.09%
+# Specificity: 93.53%
