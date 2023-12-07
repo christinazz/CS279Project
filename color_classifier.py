@@ -3,6 +3,8 @@ import numpy as np
 import os
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import confusion_matrix
+
 
 # Function to extract color features from an image
 def extract_color_features(image_path):
@@ -74,8 +76,20 @@ linear_classifier.fit(X_train, y_train)
 y_pred = linear_classifier.predict(X_test)
 
 # Evaluate the model
-linear_accuracy = accuracy_score(y_test, y_pred)
-print(f'SVM Linear Classifier Accuracy: {linear_accuracy * 100:.2f}%')
+print(f'SVM Linear Classifier')
+
+conf_matrix = confusion_matrix(y_test, y_pred)
+print("Confusion Matrix:")
+print(conf_matrix)
+
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Accuracy: {accuracy * 100:.2f}%')
+
+tn, fp, fn, tp = conf_matrix.ravel()
+sensitivity = tp / (tp + fn) * 100
+specificity = tn / (tn + fp) * 100
+print(f"Sensitivity: {sensitivity:.2f}%")
+print(f"Specificity: {specificity:.2f}%")
 
 # Train SVM RBF classifier
 rbf_classifier = SVC(kernel='rbf')
@@ -85,8 +99,20 @@ rbf_classifier.fit(X_train, y_train)
 y_pred = rbf_classifier.predict(X_test)
 
 # Evaluate the model
-rbf_accuracy = accuracy_score(y_test, y_pred)
-print(f'SVM RBF Classifier Accuracy: {rbf_accuracy * 100:.2f}%')
+print(f'SVM RBF Classifier')
+
+conf_matrix = confusion_matrix(y_test, y_pred)
+print("Confusion Matrix:")
+print(conf_matrix)
+
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Accuracy: {accuracy * 100:.2f}%')
+
+tn, fp, fn, tp = conf_matrix.ravel()
+sensitivity = tp / (tp + fn) * 100
+specificity = tn / (tn + fp) * 100
+print(f"Sensitivity: {sensitivity:.2f}%")
+print(f"Specificity: {specificity:.2f}%")
 
 ###############################################################################################################
 
@@ -106,8 +132,20 @@ linear_classifier.fit(X_train, y_train)
 y_pred = linear_classifier.predict(X_test)
 
 # Evaluate the model
-linear_accuracy = accuracy_score(y_test, y_pred)
-print(f'SVM Linear Classifier Accuracy: {linear_accuracy * 100:.2f}%')
+print(f'SVM Linear Classifier')
+
+conf_matrix = confusion_matrix(y_test, y_pred)
+print("Confusion Matrix:")
+print(conf_matrix)
+
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Accuracy: {accuracy * 100:.2f}%')
+
+tn, fp, fn, tp = conf_matrix.ravel()
+sensitivity = tp / (tp + fn) * 100
+specificity = tn / (tn + fp) * 100
+print(f"Sensitivity: {sensitivity:.2f}%")
+print(f"Specificity: {specificity:.2f}%")
 
 # Train SVM RBF classifier
 rbf_classifier = SVC(kernel='rbf')
@@ -117,8 +155,20 @@ rbf_classifier.fit(X_train, y_train)
 y_pred = rbf_classifier.predict(X_test)
 
 # Evaluate the model
-rbf_accuracy = accuracy_score(y_test, y_pred)
-print(f'SVM RBF Classifier Accuracy: {rbf_accuracy * 100:.2f}%')
+print(f'SVM RBF Classifier')
+
+conf_matrix = confusion_matrix(y_test, y_pred)
+print("Confusion Matrix:")
+print(conf_matrix)
+
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Accuracy: {accuracy * 100:.2f}%')
+
+tn, fp, fn, tp = conf_matrix.ravel()
+sensitivity = tp / (tp + fn) * 100
+specificity = tn / (tn + fp) * 100
+print(f"Sensitivity: {sensitivity:.2f}%")
+print(f"Specificity: {specificity:.2f}%")
 
 ###############################################################################################################
 
@@ -144,8 +194,20 @@ linear_classifier.fit(X_train, y_train)
 y_pred = linear_classifier.predict(X_test)
 
 # Evaluate the model
-linear_accuracy = accuracy_score(y_test, y_pred)
-print(f'SVM Linear Classifier Accuracy: {linear_accuracy * 100:.2f}%')
+print(f'SVM Linear Classifier')
+
+conf_matrix = confusion_matrix(y_test, y_pred)
+print("Confusion Matrix:")
+print(conf_matrix)
+
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Accuracy: {accuracy * 100:.2f}%')
+
+tn, fp, fn, tp = conf_matrix.ravel()
+sensitivity = tp / (tp + fn) * 100
+specificity = tn / (tn + fp) * 100
+print(f"Sensitivity: {sensitivity:.2f}%")
+print(f"Specificity: {specificity:.2f}%")
 
 # Train SVM RBF classifier
 rbf_classifier = SVC(kernel='rbf')
@@ -155,5 +217,17 @@ rbf_classifier.fit(X_train, y_train)
 y_pred = rbf_classifier.predict(X_test)
 
 # Evaluate the model
-rbf_accuracy = accuracy_score(y_test, y_pred)
-print(f'SVM RBF Classifier Accuracy: {rbf_accuracy * 100:.2f}%')
+print(f'SVM RBF Classifier')
+
+conf_matrix = confusion_matrix(y_test, y_pred)
+print("Confusion Matrix:")
+print(conf_matrix)
+
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Accuracy: {accuracy * 100:.2f}%')
+
+tn, fp, fn, tp = conf_matrix.ravel()
+sensitivity = tp / (tp + fn) * 100
+specificity = tn / (tn + fp) * 100
+print(f"Sensitivity: {sensitivity:.2f}%")
+print(f"Specificity: {specificity:.2f}%")
