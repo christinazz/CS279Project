@@ -92,6 +92,12 @@ print(f"Precision: {precision}")
 print(f"Recall: {recall}")
 print(f"F1-Score: {f1}")
 
+tn, fp, fn, tp = conf_matrix.ravel()
+sensitivity = tp / (tp + fn) * 100
+specificity = tn / (tn + fp) * 100
+print(f"Sensitivity: {sensitivity:.2f}%")
+print(f"Specificity: {specificity:.2f}%")
+
 # Train SVM RBF classifier
 rbf_classifier = SVC(kernel='rbf')
 rbf_classifier.fit(X_train, y_train)
@@ -116,6 +122,12 @@ f1 = f1_score(y_test, y_pred)
 print(f"Precision: {precision}")
 print(f"Recall: {recall}")
 print(f"F1-Score: {f1}")
+
+tn, fp, fn, tp = conf_matrix.ravel()
+sensitivity = tp / (tp + fn) * 100
+specificity = tn / (tn + fp) * 100
+print(f"Sensitivity: {sensitivity:.2f}%")
+print(f"Specificity: {specificity:.2f}%")
 
 ###############################################################################################################
 
@@ -152,6 +164,12 @@ print(f"Precision: {precision}")
 print(f"Recall: {recall}")
 print(f"F1-Score: {f1}")
 
+tn, fp, fn, tp = conf_matrix.ravel()
+sensitivity = tp / (tp + fn) * 100
+specificity = tn / (tn + fp) * 100
+print(f"Sensitivity: {sensitivity:.2f}%")
+print(f"Specificity: {specificity:.2f}%")
+
 # Train SVM RBF classifier
 rbf_classifier = SVC(kernel='rbf')
 rbf_classifier.fit(X_train, y_train)
@@ -176,6 +194,12 @@ f1 = f1_score(y_test, y_pred)
 print(f"Precision: {precision}")
 print(f"Recall: {recall}")
 print(f"F1-Score: {f1}")
+
+tn, fp, fn, tp = conf_matrix.ravel()
+sensitivity = tp / (tp + fn) * 100
+specificity = tn / (tn + fp) * 100
+print(f"Sensitivity: {sensitivity:.2f}%")
+print(f"Specificity: {specificity:.2f}%")
 
 ###############################################################################################################
 
@@ -218,6 +242,12 @@ print(f"Precision: {precision}")
 print(f"Recall: {recall}")
 print(f"F1-Score: {f1}")
 
+tn, fp, fn, tp = conf_matrix.ravel()
+sensitivity = tp / (tp + fn) * 100
+specificity = tn / (tn + fp) * 100
+print(f"Sensitivity: {sensitivity:.2f}%")
+print(f"Specificity: {specificity:.2f}%")
+
 # Train SVM RBF classifier
 rbf_classifier = SVC(kernel='rbf')
 rbf_classifier.fit(X_train, y_train)
@@ -242,3 +272,9 @@ f1 = f1_score(y_test, y_pred)
 print(f"Precision: {precision}")
 print(f"Recall: {recall}")
 print(f"F1-Score: {f1}")
+
+tn, fp, fn, tp = conf_matrix.ravel()
+sensitivity = tp / (tp + fn) * 100
+specificity = tn / (tn + fp) * 100
+print(f"Sensitivity: {sensitivity:.2f}%")
+print(f"Specificity: {specificity:.2f}%")
