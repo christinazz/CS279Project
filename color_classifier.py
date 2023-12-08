@@ -2,8 +2,7 @@ import cv2
 import numpy as np
 import os
 from sklearn.svm import SVC
-from sklearn.metrics import accuracy_score
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, accuracy_score
 
 
 # Function to extract color features from an image
@@ -85,11 +84,13 @@ print(conf_matrix)
 accuracy = accuracy_score(y_test, y_pred)
 print(f'Accuracy: {accuracy * 100:.2f}%')
 
-tn, fp, fn, tp = conf_matrix.ravel()
-sensitivity = tp / (tp + fn) * 100
-specificity = tn / (tn + fp) * 100
-print(f"Sensitivity: {sensitivity:.2f}%")
-print(f"Specificity: {specificity:.2f}%")
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
+
+print(f"Precision: {precision}")
+print(f"Recall: {recall}")
+print(f"F1-Score: {f1}")
 
 # Train SVM RBF classifier
 rbf_classifier = SVC(kernel='rbf')
@@ -108,11 +109,13 @@ print(conf_matrix)
 accuracy = accuracy_score(y_test, y_pred)
 print(f'Accuracy: {accuracy * 100:.2f}%')
 
-tn, fp, fn, tp = conf_matrix.ravel()
-sensitivity = tp / (tp + fn) * 100
-specificity = tn / (tn + fp) * 100
-print(f"Sensitivity: {sensitivity:.2f}%")
-print(f"Specificity: {specificity:.2f}%")
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
+
+print(f"Precision: {precision}")
+print(f"Recall: {recall}")
+print(f"F1-Score: {f1}")
 
 ###############################################################################################################
 
@@ -141,11 +144,13 @@ print(conf_matrix)
 accuracy = accuracy_score(y_test, y_pred)
 print(f'Accuracy: {accuracy * 100:.2f}%')
 
-tn, fp, fn, tp = conf_matrix.ravel()
-sensitivity = tp / (tp + fn) * 100
-specificity = tn / (tn + fp) * 100
-print(f"Sensitivity: {sensitivity:.2f}%")
-print(f"Specificity: {specificity:.2f}%")
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
+
+print(f"Precision: {precision}")
+print(f"Recall: {recall}")
+print(f"F1-Score: {f1}")
 
 # Train SVM RBF classifier
 rbf_classifier = SVC(kernel='rbf')
@@ -164,11 +169,13 @@ print(conf_matrix)
 accuracy = accuracy_score(y_test, y_pred)
 print(f'Accuracy: {accuracy * 100:.2f}%')
 
-tn, fp, fn, tp = conf_matrix.ravel()
-sensitivity = tp / (tp + fn) * 100
-specificity = tn / (tn + fp) * 100
-print(f"Sensitivity: {sensitivity:.2f}%")
-print(f"Specificity: {specificity:.2f}%")
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
+
+print(f"Precision: {precision}")
+print(f"Recall: {recall}")
+print(f"F1-Score: {f1}")
 
 ###############################################################################################################
 
@@ -203,11 +210,13 @@ print(conf_matrix)
 accuracy = accuracy_score(y_test, y_pred)
 print(f'Accuracy: {accuracy * 100:.2f}%')
 
-tn, fp, fn, tp = conf_matrix.ravel()
-sensitivity = tp / (tp + fn) * 100
-specificity = tn / (tn + fp) * 100
-print(f"Sensitivity: {sensitivity:.2f}%")
-print(f"Specificity: {specificity:.2f}%")
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
+
+print(f"Precision: {precision}")
+print(f"Recall: {recall}")
+print(f"F1-Score: {f1}")
 
 # Train SVM RBF classifier
 rbf_classifier = SVC(kernel='rbf')
@@ -226,8 +235,10 @@ print(conf_matrix)
 accuracy = accuracy_score(y_test, y_pred)
 print(f'Accuracy: {accuracy * 100:.2f}%')
 
-tn, fp, fn, tp = conf_matrix.ravel()
-sensitivity = tp / (tp + fn) * 100
-specificity = tn / (tn + fp) * 100
-print(f"Sensitivity: {sensitivity:.2f}%")
-print(f"Specificity: {specificity:.2f}%")
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
+
+print(f"Precision: {precision}")
+print(f"Recall: {recall}")
+print(f"F1-Score: {f1}")
