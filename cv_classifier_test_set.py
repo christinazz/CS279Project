@@ -3,6 +3,8 @@ import numpy as np
 import os
 import shutil
 from sklearn.metrics import confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Directory paths
 parasitized_dir = 'cell_images/images/ParasitizedTest'
@@ -70,6 +72,7 @@ for filename in os.listdir(combined_dir):
 
 		if actual_label == predicted_label:
 			correct_predictions += 1
+print("Total images:", total_images)
 
 # Generate confusion matrix
 conf_matrix = confusion_matrix(y_true, y_pred, labels=["Parasitized", "Uninfected"])
@@ -90,6 +93,29 @@ sensitivity = tp / (tp + fn) * 100
 specificity = tn / (tn + fp) * 100
 print(f"Sensitivity: {sensitivity:.2f}%")
 print(f"Specificity: {specificity:.2f}%")
+
+# Precision, Recall, and F1 Score calculations
+precision = tp / (tp + fp) * 100
+recall = sensitivity
+f1_score = 2 * (precision * recall) / (precision + recall)
+
+print(f"Precision: {precision:.2f}%")
+print(f"Recall: {recall:.2f}%")
+print(f"F1 Score: {f1_score:.2f}%")
+
+labels = list(set(y_true))  # Extract the labels from your true labels list
+
+# Plotting using Seaborn
+plt.figure(figsize=(8, 6))
+sns.heatmap(conf_matrix, annot=True, fmt="d", linewidths=.5, cmap="Blues", xticklabels=labels, yticklabels=labels)
+
+# Adding labels and title for clarity
+plt.ylabel('True label')
+plt.xlabel('Predicted label')
+plt.title('Confusion Matrix')
+
+# Display the plot
+plt.show()
 
 
 ## Threshold value: 120
